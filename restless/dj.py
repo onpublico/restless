@@ -84,7 +84,7 @@ class DjangoResource(Resource):
 
         :returns: A ``patterns`` object for ``include(...)``
         """
-        return patterns('',
+        return [
             url(r'^$', cls.as_list(), name=cls.build_url_name('list', name_prefix)),
             url(r'^(?P<pk>\d+)/$', cls.as_detail(), name=cls.build_url_name('detail', name_prefix)),
-        )
+        ]
